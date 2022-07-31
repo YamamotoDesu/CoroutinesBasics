@@ -1,6 +1,6 @@
-# CoroutinesBasics
-
-## Hello world
+# CoroutinesBasic
+## Scope
+### Hello world
 
 ```kt
 fun main() {
@@ -19,7 +19,7 @@ fun main() {
 }
 ```
 
-## Coroutines are lightweight
+### Coroutines are lightweight
 ```kt
 fun main() {
     runBlocking {  // メインスレッドをブロックするエクスプレッションを作成する
