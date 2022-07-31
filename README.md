@@ -1,15 +1,16 @@
 # CoroutinesBasics
 
 ## Hello world
+
 ```kt
 fun main() {
     GlobalScope.launch {
         delay(2000)
-        println("World")
+        println("World")  // 新しいコルーチンを作りバックグラウンドで動作させる
     }
 
-    print("Hello, ")
-    Thread.sleep(3000)
+    print("Hello, ") // コルーチンが待っている間メインスレッドが動き続ける
+    Thread.sleep(3000) // メインスレッドを止めないように sleep する
 
     /**
      * Hello, World
