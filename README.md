@@ -24,7 +24,7 @@ fun main() {
 fun main() {
     runBlocking {  // メインスレッドをブロックするエクスプレッションを作成する
         repeat(1_000_000) {
-            launch {
+            launch { // Coroutines実行
                 print(".")
             }
         }
