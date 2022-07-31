@@ -22,7 +22,7 @@ fun main() {
 ## Coroutines are lightweight
 ```kt
 fun main() {
-    runBlocking {
+    runBlocking {  // メインスレッドをブロックするエクスプレッションを作成する
         repeat(1_000_000) {
             launch {
                 print(".")
