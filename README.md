@@ -105,3 +105,43 @@ suspend fun improvedMessage() {
     functionCalls++
 }
 ```
+
+## Jobs
+```kt
+runBlocking {
+        val job1 = launch {
+//            delay(3000L)
+            println("Job1 launched")
+            val job2 = launch {
+                println("Job2 launched")
+                delay(3000L)
+                println("Job2 is finishing")
+            }
+            job2.invokeOnCompletion { println("Job2 completed") }
+
+            val job3 = launch {
+                println("job3 launched")
+                delay(3000L)
+                println("job3 is finishing")
+            }
+            job3.invokeOnCompletion { println("job3 completed") }
+        }
+
+        job1.invokeOnCompletion { println("Job1 is completed") }
+
+        delay(500L)
+        println("Job1 will be cancelled")
+        job1.cancel()
+        /*
+        Job1 launched
+        Job2 launched
+        job3 launched
+        Job1 will be cancelled
+        Job2 completed
+        job3 completed
+        Job1 is completed
+
+        Process finished with exit code 0
+         */
+    }
+```
